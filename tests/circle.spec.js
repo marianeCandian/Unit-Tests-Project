@@ -48,6 +48,4 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
     });
   });
 });
-   
-    // Teste se a função retorna, em um objeto, os dados corretos de um círculo de raio 3.
   
