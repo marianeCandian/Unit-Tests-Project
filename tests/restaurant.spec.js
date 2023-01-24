@@ -54,8 +54,9 @@ const createMenu = require('../src/restaurant');
 
 describe('10 - Implemente a função `createMenu`, bem como seus casos de teste', () => {
   it('Verifica se a função `createMenu` tem o comportamento esperado', () => {
-    fail('Teste vazio!');
+    expect(createMenu())
     // TESTE 1: Verifique se função `createMenu()` retorna um objeto que possui a chave `fetchMenu`, a qual tem como valor uma função.
+
     // ```
     // const objetoRetornado = createMenu(); // Retorno: { fetchMenu: () => {}, ... }
     // ```
@@ -70,7 +71,11 @@ describe('10 - Implemente a função `createMenu`, bem como seus casos de teste'
     // const objetoRetornado = createMenu(objetoQualquer);
     // objetoRetornado.fetchMenu() // Retorno: objetoQualquer
     // ```
-
+    const objetoRetornado = createMenu({ food: {}, drink: {} });
+    expect(typeof objetoRetornado.fetchMenu).toBe('function')
+    expect(objetoRetornado.fetchMenu()).toEqual({ food: {}, drink: {} });
+    const meuMenu = createMenu({ food: {coxinha: 4, sopa: 10.5, sashimi: 13 }, drink: { água: 2.0, refrigerante: 3.5} });
+    expect(meuMenu.fetchMenu()).toEqual({ food: { coxinha: 4, sopa: 10.5, sashimi: 13 }, drink: { água: 2.0, refrigerante: 3.5 } });
     // Agora faça o PASSO 1 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
 
